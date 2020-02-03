@@ -1,0 +1,28 @@
+{
+  "message":"success",
+  "error_message":"",
+  "data":{
+    "status_code":0,
+    "withdraw_recodes":[{
+        "name":"zs",
+        "age":22,
+        "sex":"male"
+      },
+      {
+        "name":"ls",
+        "age":50,
+        "sex":"male"
+      },
+      {
+        "name":"ww",
+        "age":77,
+        "sex":"female"
+      },
+      {
+        "name":"zl",
+        "age":36,
+        "sex":"male"
+      }]
+  },
+  "server_time": "1568609772.36"
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css" rel="stylesheet">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .table_wrapper{
+            position: relative;
+            width: 80%;
+            height: 100%;
+            margin: 0 auto;
+            /*background-color: #fffafa;*/
+            padding: 100px 50px 50px 50px;
+        }
+
+        .input_wrapper{
+
+            width: 480px;
+            height: 40px;
+        }
+        .ipt{
+            border: solid 1px #cccccc;
+            background-color: rgba(245,245,245,0.5);
+            border-radius: 10px;
+
+            margin: 0 15px;
+            width: 450px;
+            height: 100%;
+        }
+        .btn-wrapper{
+            position: absolute;
+            top: 100px;
+            left: 550px;
+        }
+        .btn{
+            background-color: rgba(245,245,245,0.5);
+            width: 55px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #696969;
+            border: solid 1px #cccccc;
+            border-radius: 10px;
+        }
+
+        .clickBtn{
+            background-color: rgba(70,130,180,0.5);
+            width: 55px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #696969;
+            border: solid 1px #cccccc;
+            border-radius: 10px;
+        }
+
+        .table{
+            margin: 50px 15px;
+            border: solid 1px rgba(211,211,211,.6);
+            background-color: rgba(245,245,245,.4);
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #696969;
+        }
+        tr{
+            padding: 20px;
+            border-bottom: solid 1px rgba(211,211,211,.6);
+            display: flex;
+        }
+        td{
+            flex:1;
+
+        }
+    </style>
+</head>
+<body>
+<div class="table_wrapper">
+    <div class="content">
+        <div class="input_wrapper">
+            <input class="ipt" autocomplete="off" type="text">
+        </div>
+        <div class="btn-wrapper">
+            <button class="btn" type="button" onclick="sendData()">确认</button>
+        </div>
+        <div class="table">
+
+        </div>
+    </div>
+</div>
+<script src="GetData.js"></script>
+<script>
+    function sendData() {
+        var msg = document.getElementsByClassName('ipt')[0].value;
+        var btn = document.getElementsByClassName('btn')[0];
+        var url = "http://192.168.223.1:8080"
+        ;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET',url+'/'+msg);
+        xhr.send();
+        xhr.onreadystatechange=function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    document.write(xhr.responseText)
+
+                } else {
+                    alert("错误" + xhr.status)
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
